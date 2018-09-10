@@ -3,12 +3,11 @@
 #include <cmath>
 
 typedef unsigned int uint;
-typedef std::vector<uint> vint;
-typedef std::vector<bool> vbool;
+using std::vector;
 
-vint sieve(uint n) {
-    vint primes;
-    vbool a(n);
+vector<uint> sieve(uint n) {
+    vector<uint> primes;
+    vector<bool> a(n);
     uint p;
     for(p = 2; p < n;) {
         for(uint i = p; i < n; i += p) a[i] = true;
@@ -34,7 +33,7 @@ bool isWholeNumber(T&& val) {
 
 // Check all values from offset to offset + N
 uint solve(uint N, uint offset=0) {
-    vint primes = sieve(N + offset);
+    vector<uint> primes = sieve(N + offset);
 
     // Go through all i and see if it doesn't have a matching N for a given prime <= i
     for(uint i = 3; i < N; i += 2) {

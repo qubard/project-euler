@@ -2,12 +2,11 @@
 #include <vector>
 
 typedef unsigned int uint;
-typedef std::vector<uint> vint;
-typedef std::vector<bool> vbool;
+using std::vector;
 
-vint sieve(uint n) {
-    vint primes = {2};
-    vbool a(n);
+vector<uint> sieve(uint n) {
+    vector<uint> primes = {2};
+    vector<bool> a(n);
     uint p;
     for(p = 2; p < n;) {
         for(uint i = p; i < n; i += p) a[i] = true;
