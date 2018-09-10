@@ -8,8 +8,7 @@ int main() {
     uint length = 13;
     for(uint i = 0; i <= matrix.length()-length; i++) {
         ulong product = 1; // long because solution is as large as 9^13 which is ~41 bits
-        for(uint j = 0; j < length; product *= (int)matrix[i+j++] - (int)'0');
-        if(product > solution) solution = product;
+        for(uint j = 0; j < length; product *= (int)matrix[i+j++] - (int)'0', solution = product > solution ? product : solution);
     }
     std::cout << "Solution is " << solution << std::endl;
     return 0;
