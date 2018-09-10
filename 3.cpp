@@ -3,7 +3,7 @@
 
 typedef unsigned long long ulong;
 
-bool isPrime(ulong n) {
+inline bool isPrime(ulong n) {
     if(n % 2 == 0) return false;
     for(ulong i = sqrt(n); i > 1; i--) if(n % i == 0) return false;
     return true;
