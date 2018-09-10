@@ -47,9 +47,7 @@ uint solve(uint N, uint offset=0) {
             }
         }
 
-        if(!skip) {
-            return i;
-        }
+        if(!skip) return i;
     }
     return -1;
 }
