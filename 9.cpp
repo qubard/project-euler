@@ -8,7 +8,7 @@ int main() {
             uint asq = a * a;
             uint csq = c * c;
             uint bsq = csq - asq;
-            float b = sqrt(bsq);
+            double b = sqrt(bsq);
             if(b > a && b < c && a + b + c == 1000) { 
                 std::cout << "Solution is " << a * (uint) b * c << std::endl; // 31875000
             }  
