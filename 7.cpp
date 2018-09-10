@@ -5,7 +5,7 @@ typedef unsigned int uint;
 using std::vector;
 
 vector<uint> sieve(uint n) {
-    vector<uint> primes = {2};
+    vector<uint> primes = { 2 };
     vector<bool> a(n);
     uint p;
     for(p = 2; p < n;) {
