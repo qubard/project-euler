@@ -3,13 +3,11 @@
 
 typedef unsigned long long ulong;
 
-const ulong factors(const ulong n) {
+const ulong nfactors(const ulong n) {
     ulong ret = 0;
-    for(ulong i = sqrt(n); i >= 1; i--) {
-        if(n % i == 0) {
-            ret += 2;
-        }
-    }
+	ulong sq = sqrt(n);
+    for(ulong i = sq; i >= 1; ret += n % i == 0 ? 2 : 0, i--);
+	if(sq * sq == n) ret--; // perfect squares
     return ret;
 }
 
@@ -19,7 +17,7 @@ int main() {
     ulong f = 1;
     while(f < 500) {
         triangle += i++;
-        f = factors(triangle);
+        f = nfactors(triangle);
     }
     std::cout << "Solution is " << triangle << std::endl;
     return 0;
