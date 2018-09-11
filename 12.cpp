@@ -5,9 +5,9 @@ typedef unsigned long long ulong;
 
 const ulong nfactors(const ulong n) {
     ulong ret = 0;
-	ulong sq = sqrt(n);
+    ulong sq = sqrt(n);
     for(ulong i = sq; i >= 1; ret += n % i == 0 ? 2 : 0, i--);
-	if(sq * sq == n) ret--; // perfect squares
+    if(sq * sq == n) ret--; // perfect squares
     return ret;
 }
 
