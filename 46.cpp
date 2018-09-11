@@ -5,29 +5,21 @@
 typedef unsigned int uint;
 using std::vector;
 
-vector<uint> sieve(uint n) {
+vector<uint> sieve(const uint n) {
     vector<uint> primes;
     vector<bool> a(n);
     uint p;
-    for(p = 2; p < n;) {
-        for(uint i = p; i < n; i += p) a[i] = true;
-
-        uint i;
-        for(i = p+1; i < n; i++) {
-            if(!a[i]) {
-                primes.push_back(p = i);
-                break;
-            }
+    for(p = 2; p < n; p++) {
+        if(!a[p]) {
+            primes.push_back(p);
+            for(uint i = p * p; i < n; i += p) a[i] = true;
         }
-
-        // No new prime found
-        if(i == n) break;
     }
     return primes;
 }
 
 template <class T>
-bool isWholeNumber(T&& val) {
+bool isWholeNumber(const T&& val) {
     return floor(val) == val;
 }
 
@@ -45,7 +37,6 @@ uint solve(uint N, uint offset=0) {
                 break;
             }
         }
-
         if(!skip) return i;
     }
     return -1;

@@ -1,19 +1,17 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 typedef unsigned long long ulong;
 
-inline bool isPrime(ulong n) {
-    if(n % 2 == 0) return false;
-    for(ulong i = sqrt(n); i > 1; i--) if(n % i == 0) return false;
-    return true;
-}
-
-// avoided using a sieve since it takes input n, prime generator? doesn't seem to matter
 int main() {
+    const ulong n = 2000000;
+    std::vector<bool> a(n);
     ulong solution = 0;
-    for(ulong i = 2; i < 2000000; i++) {
-        if(isPrime(i)) solution += i;
+    for(ulong p = 2; p < n; p++) {
+        if(!a[p]) {
+            solution += p;
+            for(ulong i = p * p; i < n; i += p) a[i] = true;
+        }
     }
     std::cout << "Solution is " << solution << std::endl;
     return 0;
