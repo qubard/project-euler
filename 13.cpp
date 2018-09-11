@@ -6,12 +6,13 @@
 
 class BigInt {
     typedef std::vector<uint8_t> container;
+    friend std::ostream& operator<<(std::ostream&, const BigInt&);
     public:
         BigInt(container c) : values(c) {  }
     
         BigInt(std::string str) {
             values = container(str.rbegin(), str.rend());
-            std::for_each(values.begin(), values.end(), [](auto &val){ val = val - (int)'0'; });
+            std::for_each(values.begin(), values.end(), [](auto &val){ val = val - '0'; });
         }
 
         BigInt operator+(BigInt& num) {
@@ -34,15 +35,13 @@ class BigInt {
             return BigInt(result);
         }
 
-        std::string to_string() {
+        std::string to_string() const {
             std::string ret;
-            for(auto itr = values.rbegin(); itr != values.rend(); itr++) ret += *itr + int('0');
+            for(auto itr = values.rbegin(); itr != values.rend(); itr++) ret += *itr + '0';
             return ret;
         }
     private:
         container values;
-
-    friend std::ostream& operator<<(std::ostream&, const BigInt&);
 };
 
 std::ostream& operator<<(std::ostream& os, const BigInt& num) {
