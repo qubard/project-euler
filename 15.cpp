@@ -9,7 +9,7 @@ typedef unsigned int uint;
 // But finding the recurrence then creating a dynamic programming solution is easier
 
 int main() {
-    constexpr uint dimension = 20;
+    constexpr size_t dimension = 20;
     std::vector<std::vector<ulong>> dp(dimension + 1, std::vector<ulong>(dimension + 1));
 
     for(uint i = 0; i < dimension + 1; i++) { 

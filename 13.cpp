@@ -12,7 +12,7 @@ class BigInt {
     
         BigInt(std::string str) {
             values = container(str.rbegin(), str.rend());
-            std::for_each(values.begin(), values.end(), [](auto &val){ val = val - '0'; });
+            std::transform(values.begin(), values.end(), values.begin(), [](auto val){ return val - '0'; });
         }
 
         BigInt operator+(BigInt& num) {

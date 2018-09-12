@@ -18,7 +18,7 @@ vector<uint> sieve(const uint n) {
     return primes;
 }
 
-template <class T>
+template<typename T>
 bool isWholeNumber(const T&& val) {
     return floor(val) == val;
 }
