@@ -10,7 +10,7 @@ typedef unsigned long long ulong;
 
 ulong digit(const std::string&& s) {
     if(s.length() < 2) return 0;
-    return 10 * (s[0] - int('0')) + (s[1] - int('0'));
+    return 10 * (s[0] - '0') + (s[1] - '0');
 }
 
 int main() {
