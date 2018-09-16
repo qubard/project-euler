@@ -12,12 +12,18 @@ class BigInt {
     friend std::ostream& operator<<(std::ostream& os, const BigInt& num) {
         return os << num.to_str();
     }
-
+    
     public:
-        BigInt() : values({0}) { }
-        BigInt(const BigInt& num) : values(num.values){ }
-        BigInt(BigInt&& num) : values(std::move(num.values)) { }
-        BigInt(container c) : values(c) { }
+        BigInt() {}
+        BigInt(const BigInt& num) : values(num.values) {}
+        BigInt(BigInt&& num) : values(std::move(num.values)) {}
+        BigInt(size_t i) {
+            while(i) {
+                values.push_back(i % 10);
+                i /= 10;
+            }
+        }
+        BigInt(container c) : values(c) {}
         BigInt(std::string str) {
             values = container(str.rbegin(), str.rend());
             std::transform(values.begin(), values.end(), values.begin(), [](auto val){ return val - '0'; });

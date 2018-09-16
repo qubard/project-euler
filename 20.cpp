@@ -97,11 +97,8 @@ size_t sum_digits(BigInt& num) {
 }
 
 int main() {
-    // 1000 bit number
-    BigInt solution("2"); 
-    for(size_t i = 1; i < 1000; i++) {
-        solution = solution * BigInt("2");
-    }
-    std::cout << sum_digits(solution) << std::endl; // 1366
+    BigInt solution("1");
+    for(size_t i = 2; i < 100; i++) solution = solution * BigInt(i);
+    std::cout << "Solution is " << sum_digits(solution) << std::endl;
     return 0;
 }
