@@ -5,22 +5,10 @@
 
 size_t d(size_t n) {
     size_t ret = 0;
-    size_t divisor = sqrt(n);
-    std::vector<bool> arr(n + 1); // kinda dumb but it'll do
-    while(divisor >= 1) {
+    for(size_t divisor = n; divisor >= 1; divisor--) {
         if(n % divisor == 0){ 
-            if(!arr[divisor]) {
-                arr[divisor] = true;
-                ret += divisor;
-            }
-
-            size_t other_divisor = n / divisor;
-            if(!arr[other_divisor]) {
-                arr[other_divisor] = true;
-                ret += other_divisor;
-            }
+            ret += divisor;
         }
-        divisor--;
     }
     return ret - n;
 }
