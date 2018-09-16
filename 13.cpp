@@ -13,12 +13,11 @@ class BigInt {
         return os << num.to_str();
     }
 
-
     public:
-        BigInt() { }
+        BigInt() : values({0}) { }
         BigInt(const BigInt& num) : values(num.values){ }
         BigInt(BigInt&& num) : values(std::move(num.values)) { }
-        BigInt(container c) : values(c) {  }
+        BigInt(container c) : values(c) { }
         BigInt(std::string str) {
             values = container(str.rbegin(), str.rend());
             std::transform(values.begin(), values.end(), values.begin(), [](auto val){ return val - '0'; });
