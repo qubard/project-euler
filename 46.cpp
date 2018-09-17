@@ -2,17 +2,16 @@
 #include <vector>
 #include <cmath>
 
-typedef unsigned int uint;
 using std::vector;
 
-vector<uint> sieve(const uint n) {
-    vector<uint> primes;
+vector<size_t> sieve(const size_t n) {
+    vector<size_t> primes;
     vector<bool> a(n);
-    uint p;
+    size_t p;
     for (p = 2; p < n; p++) {
-        if(!a[p]) {
+        if (!a[p]) {
             primes.push_back(p);
-            for (uint i = p * p; i < n; i += p) a[i] = true;
+            for (size_t i = p * p; i < n; i += p) a[i] = true;
         }
     }
     return primes;
@@ -24,14 +23,14 @@ bool isWholeNumber(const T&& val) {
 }
 
 // Check all values from offset to offset + N
-uint solve(uint N, uint offset=0) {
-    vector<uint> primes = sieve(N + offset);
+size_t solve(size_t N, size_t offset=0) {
+    vector<size_t> primes = sieve(N + offset);
 
     // Go through all i and see if it doesn't have a matching N for a given prime <= i
-    for (uint i = 3; i < N; i += 2) {
-        uint val = i + offset;
+    for (size_t i = 3; i < N; i += 2) {
+        size_t val = i + offset;
         bool skip = false;
-        for (uint& prime : primes) {
+        for (size_t& prime : primes) {
             if (prime <= val && isWholeNumber(sqrt((val-prime)/2))) { // Solve for N in 2*N^2
                 skip = true;
                 break;
@@ -43,7 +42,7 @@ uint solve(uint N, uint offset=0) {
 }
 
 int main() {
-    uint N = 10000000;
+    size_t N = 10000000;
     std::cout << "Solution is " << solve(N) << std::endl;
     return 0;
 }
