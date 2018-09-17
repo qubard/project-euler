@@ -7,8 +7,8 @@ int main() {
     const ulong n = 2000000;
     std::vector<bool> a(n);
     ulong solution = 0;
-    for(ulong p = 2; p < n; p++) {
-        if(!a[p]) {
+    for (ulong p = 2; p < n; p++) {
+        if (!a[p]) {
             solution += p;
             for(ulong i = p * p; i < n; i += p) a[i] = true;
         }

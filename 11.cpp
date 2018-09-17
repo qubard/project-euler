@@ -13,15 +13,15 @@ int main() {
     std::vector<Vec2> dirs = { { 1, 0 }, { 0, 1 }, { 1, 1 }, { -1, 1 } };
     uint solution = 0;
 
-    for(int8_t x = 0; x < 20; x++) {
-        for(int8_t y = 0; y < 20; y++) {
+    for (int8_t x = 0; x < 20; x++) {
+        for (int8_t y = 0; y < 20; y++) {
             // at each x, y try to move in each direction
-            for(Vec2& dir : dirs) {
+            for (Vec2& dir : dirs) {
                 uint product = nums[x + y * 20];
-                for(int i = 1; i < 4; i++) {
+                for (int i = 1; i < 4; i++) {
                     int8_t nx = x + dir.x * i;
                     int8_t ny = y + dir.y * i;
-                    if(nx >= 0 && nx < 20 && ny >= 0 && ny < 20) {
+                    if (nx >= 0 && nx < 20 && ny >= 0 && ny < 20) {
                         product *= nums[nx + ny * 20];
                     } else {
                         break;

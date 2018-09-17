@@ -11,9 +11,9 @@ inline ulong collatz(ulong n) {
 int main() {
     ulong solution = 0;
     ulong solution_i = 0;
-    for(ulong i = 1; i < 1000000; i++) { 
+    for (ulong i = 1; i < 1000000; i++) { 
         ulong c = collatz(i);
-        if(c > solution) {
+        if (c > solution) {
             solution = c;
             solution_i = i;
         }

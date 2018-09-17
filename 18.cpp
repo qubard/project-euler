@@ -26,8 +26,8 @@ int main() {
     tri[14] = { 4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 24 };
 	
     ulong solution = 0;
-    for(int i = rows - 2; i >= 0; i--) {
-        for(int j = 0; j < tri[i].size(); j++) {
+    for (int i = rows - 2; i >= 0; i--) {
+        for (int j = 0; j < tri[i].size(); j++) {
             tri[i][j] = std::max(tri[i][j] + tri[i + 1][j], tri[i][j] + tri[i + 1][j + 1]);
         }
     }

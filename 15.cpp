@@ -12,13 +12,13 @@ int main() {
     constexpr size_t dimension = 20;
     std::vector<std::vector<ulong>> dp(dimension + 1, std::vector<ulong>(dimension + 1));
 
-    for(uint i = 0; i < dimension + 1; i++) { 
+    for (uint i = 0; i < dimension + 1; i++) { 
         dp[i][dimension] = 1;
         dp[dimension][i] = 1;
     }
 
-    for(int y = dimension - 1; y >= 0; y--) { // don't make x, y unsigned!! -1 wraps to 2^32 - 1 and causes an infinite loop
-        for(int x = dimension - 1; x >= 0; x--) {
+    for (int y = dimension - 1; y >= 0; y--) { // don't make x, y unsigned!! -1 wraps to 2^32 - 1 and causes an infinite loop
+        for (int x = dimension - 1; x >= 0; x--) {
             dp[y][x] = dp[y][x + 1] + dp[y + 1][x];
         }
     }

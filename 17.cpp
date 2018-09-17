@@ -12,15 +12,15 @@ std::string generateWord(const int n, const std::array<std::string, N>& words) {
    int hundreds = (cn /= 10) % 10; 
    int thousands = (cn /= 10) % 10;
 
-   if(n < 20 || words[n] != "") {
+   if (n < 20 || words[n] != "") {
        return words[n];
    }
 
-   if(n >= 10 && n < 100) {
+   if (n >= 10 && n < 100) {
        return words[10 * tens] + "-" + generateWord(n - 10 * tens, words);
    }
 
-   if(n >= 100 && n < 1000) {
+   if (n >= 100 && n < 1000) {
         return words[hundreds] + " hundred and " + generateWord(n - 100 * hundreds, words);
    }
 
@@ -28,7 +28,7 @@ std::string generateWord(const int n, const std::array<std::string, N>& words) {
 }
 
 size_t count_characters(const std::string&& str) {
-    return std::accumulate(str.begin(), str.end(), (size_t)0, [](size_t& a, const char& b) { if(b != ' ' && b != '-') return (size_t)(a + 1); return (size_t)a; });
+    return std::accumulate(str.begin(), str.end(), (size_t)0, [](size_t& a, const char& b) { if (b != ' ' && b != '-') return (size_t)(a + 1); return (size_t)a; });
 }
 
 int main() {
@@ -53,7 +53,7 @@ int main() {
     assert(count_characters(generateWord(342, words)) == 23);
     assert(count_characters(generateWord(115, words)) == 20);
     size_t solution = 0;
-    for(int i = 1; i <= 1000; i++) {
+    for (int i = 1; i <= 1000; i++) {
         solution += count_characters(generateWord(i, words));
     }
     std::cout << "Solution is " << solution << std::endl; // 21124

@@ -8,10 +8,10 @@ vector<uint> sieve(const uint n) {
     vector<uint> primes;
     vector<bool> a(n);
     uint p;
-    for(p = 2; p < n; p++) {
-        if(!a[p]) {
+    for (p = 2; p < n; p++) {
+        if (!a[p]) {
             primes.push_back(p);
-            for(uint i = p * p; i < n; i += p) a[i] = true;
+            for (uint i = p * p; i < n; i += p) a[i] = true;
         }
     }
     return primes;

@@ -6,8 +6,8 @@ int main() {
     uint b = 2;
     uint c = a + b;
     uint sum = b;
-    while(c < 4000000) {
-        if(c % 2 == 0) sum += c;
+    while (c < 4000000) {
+        if (c % 2 == 0) sum += c;
         a = b;
         b = c;
         c = a + b;
