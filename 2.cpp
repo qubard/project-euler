@@ -1,11 +1,10 @@
 #include <iostream>
 
 int main() {
-    typedef unsigned int uint;
-    uint a = 1;
-    uint b = 2;
-    uint c = a + b;
-    uint sum = b;
+    size_t a = 1;
+    size_t b = 2;
+    size_t c = a + b;
+    size_t sum = b;
     while (c < 4000000) {
         if (c % 2 == 0) sum += c;
         a = b;
