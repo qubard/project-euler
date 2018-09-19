@@ -1,5 +1,8 @@
 # project-euler
 my project euler solutions.
 
-to compile and run a sample problem, eg. 1:
-`g++ 1.cpp -o 1 && ./1`
+to compile and run a problem in gcc
+
+```
+g++ <problemid>.cpp -o <problemid> && ./<problemid>
+```
