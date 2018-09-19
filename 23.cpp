@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <array>
+#include <cmath>
 
 size_t divisor_sum(size_t n) {
     size_t ret = 0;
